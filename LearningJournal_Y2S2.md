@@ -1,6 +1,7 @@
 # Learning Journal
 
 16/02/2021
+
 Started development on an optimal player controller that used Physics to be interactable with other objects and be usable for other games, I realised that a `Rigidbody` was necessary for what I wanted and attached that too my player. Encountered a strange bug that made the controls flip if the players Y axis was changed in any way, was told to use `Velocity` with `Vector3` rather then my original method to avoid this issue. I think I had `AddForce` originally which caused the issues. 
 
 Then I went to work on making a script for the camera to follow the player, I researched that having the camera being a child of the player would bring so problems so instead I just set the offset as the camera’s transform position - the players transform position, then made sure to keep the cameras transform position = to the players + that offset.
