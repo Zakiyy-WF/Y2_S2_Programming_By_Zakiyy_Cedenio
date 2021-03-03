@@ -23,3 +23,28 @@ I had set up two floats called `downSpeed` which dictates how fast the platform 
 I was then informed that it would be best to return the platform to its original position rather then add force to its Y axis as it would set itself into position.
 
 I was able to develop a reset position script by referencing the RigidBody and turning on and off its `Is Kinematic` and `Use Gravity` as well as setting a bool called isRising to true, isRising means if the platform position is lower then its original position, then it will drop lower, I then set it to return to its original position once a few seconds had passed. 
+
+
+01/03/2021
+I was developing a sound manager for one of my briefs, I researched what would be the best way to develop this and found a method that allows me to incorporate as many sound effects as I need. 
+
+I set up a sound array and wrote foreach sound effect in the array, it would add a component, that being an audio source, I also made two settings which allowed me to change the volume and pitch in another script called “sounds”
+```
+[Range(0f, 1f)]
+public float volume;
+ [Range(.1f, 3f)]
+public float pitch;
+```
+
+I made it a public class by erasing the `mono behaviour` and then making it viewable through the inspector by writing `[System.Serializable]`
+
+Then to allow me to choose a particular sound effect I wrote:
+```
+public void Play (string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.source.Play();
+    }
+```
+
+02/03/2021
