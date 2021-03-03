@@ -48,3 +48,16 @@ public void Play (string name)
 ```
 
 02/03/2021
+To make for my last Unity Package, I wanted to make a good reset the game script that would reliably reload the active scene if the player went through a certain collider.
+
+To do this, I set up two different scripts as I was going to use Unity’s events system to accomplish this, I made am “Events system” script with a string called “triggerTag” which sets up the code to only trigger when a specific tag meets the codes conditions and a public unity event called “triggerAction”. I could now attach this to any game object and it would allow me to call different functions as if I were using a button on a canvas.
+
+I then set up the method that I wanted to happen to call functions, which was an `OnTriggerEnter` and then made it so the `triggerTag` would invoke the triggerAction. This means that the trigger tag could be changed in the inspector to meet different needs and call the corresponding action.
+
+Then I just made a reload the scene script by writing
+```
+public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+```
