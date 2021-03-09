@@ -26,6 +26,7 @@ I was able to develop a reset position script by referencing the RigidBody and t
 
 
 01/03/2021
+
 I was developing a sound manager for one of my briefs, I researched what would be the best way to develop this and found a method that allows me to incorporate as many sound effects as I need. 
 
 I set up a sound array and wrote foreach sound effect in the array, it would add a component, that being an audio source, I also made two settings which allowed me to change the volume and pitch in another script called “sounds”
@@ -48,6 +49,7 @@ public void Play (string name)
 ```
 
 02/03/2021
+
 To make for my last Unity Package, I wanted to make a good reset the game script that would reliably reload the active scene if the player went through a certain collider.
 
 To do this, I set up two different scripts as I was going to use Unity’s events system to accomplish this, I made am “Events system” script with a string called “triggerTag” which sets up the code to only trigger when a specific tag meets the codes conditions and a public unity event called “triggerAction”. I could now attach this to any game object and it would allow me to call different functions as if I were using a button on a canvas.
@@ -63,6 +65,7 @@ public void ReloadScene()
 ```
 
 09/03/2021
+
 Made a countdown system to go along with my RCR project, was able to develop a countdown function by using a `vanvas text` and making two variables called ` currentTime` and `startingTime`. startingTime would be set to ten for the text and currentTime would be set to 0. I also made a `[SerializeField] Text countdownText;` which would be my countdown text.
 I then made `currentTime = startingTime` in the start method and made `currentTime-= 1 * Time.deltaTime;` which meant that the currentTime will be 10 and will countdown one per second. Finally, I made `countdownText.text = cuttentTime` So the canvas text would display the current time counting down.
 
