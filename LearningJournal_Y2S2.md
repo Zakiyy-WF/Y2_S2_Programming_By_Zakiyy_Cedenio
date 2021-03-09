@@ -61,3 +61,9 @@ public void ReloadScene()
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 ```
+
+09/03/2021
+Made a countdown system to go along with my RCR project, was able to develop a countdown function by using a `vanvas text` and making two variables called ` currentTime` and `startingTime`. startingTime would be set to ten for the text and currentTime would be set to 0. I also made a `[SerializeField] Text countdownText;` which would be my countdown text.
+I then made `currentTime = startingTime` in the start method and made `currentTime-= 1 * Time.deltaTime;` which meant that the currentTime will be 10 and will countdown one per second. Finally, I made `countdownText.text = cuttentTime` So the canvas text would display the current time counting down.
+
+I ran into a small issue when Unity told me I couldn't "convert to string" but I was able to reactify that by adding `.ToString("0");`. Also adding the zero meant that the game would countdown using whole numbers rather then decimals.
