@@ -25,3 +25,8 @@ This function lets your player jump a certain amount into the air using force pr
 ### is Grounded
 
 Is Grounded is a function that stops the player from jumping if they are not on the ground once the jump button is pressed this works only if you name all the platforms and area’s the player will walk on “Ground”.
+
+
+### Example Scene
+
+The example scene has a player game object with all its requiements, in the centre of a platform. You can move the player around to get a feel for the movement as well as jump to adjacent platforms to see how the jumping is, you can adjust both the speed of the player and the jump height through the inspector.
