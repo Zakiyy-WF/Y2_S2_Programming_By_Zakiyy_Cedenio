@@ -10,6 +10,14 @@ This document explains what the behaviours in this package does and the requirem
 
 ## EventsSystem
 As the name implies, this behaviour is using Unity’s events system but allowing it to be used on other game objects as if you were using a canvas. It allows you to create your own events and store them within this behaviour to invoke those created events. Through the inspector tab, you can change what tag will trigger the functions as well as what function will trigger, this all works around an `OnTriggerEnter` function so your corresponding events will have to synergise with that.
+It has the following configurable paramaters.
+
+-triggerTag
+-UnityEvent triggerAction
+
+### triggerTag
+
+### UnityEvent triggerAction
 
 ## LoadScene
 
