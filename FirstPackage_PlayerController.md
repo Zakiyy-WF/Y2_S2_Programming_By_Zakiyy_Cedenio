@@ -20,6 +20,8 @@ This allows you to see the move speed of your player, you and change it in the i
 
 ### Jump Height
 
-This function lets your player jump a certain amount into the air using force propelled in the Y axis, you can adjust this setting in the inspector tab and change how much forced is added. This requires the aforementioned RigidBody to work as the jump relies on unity physics.
+This function lets your player jump a certain amount into the air using force propelled in the Y axis, you can adjust this setting in the inspector tab and change how much forced is added. This requires the aforementioned RigidBody to work as the jump relies on unity physics. This is tied to the Spacebar by default.
 
 ### is Grounded
+
+Is Grounded is a function that stops the player from jumping if they are not on the ground once the jump button is pressed this works only if you name all the platforms and area’s the player will walk on “Ground”.
