@@ -19,4 +19,4 @@ Placing each script on the game object you want this to activate and then settin
 
 ### Example Scene
 
-The scene has a sphere tag “Player” falling into an invisible collider with the two functions named above, the scene will continually reset once the sphere touches the collider. 
+The scene has a sphere tagged “Player” with a RigidBody falling into an invisible collider with the two functions named above, the scene will continually reset once the sphere touches the collider. 
