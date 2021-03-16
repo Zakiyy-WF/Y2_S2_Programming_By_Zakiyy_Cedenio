@@ -14,6 +14,7 @@ As the name implies, this behaviour is using Unity’s events system but allowin
 It has the following configurable paramaters.
 
 -triggerTag
+
 -UnityEvent triggerAction
 
 ### triggerTag
