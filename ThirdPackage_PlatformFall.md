@@ -1,3 +1,3 @@
 # Platform Fall guide 
 
-This document explains how 
+This document explains what the behaviours in this package does and the requirements needed to work effectively.
