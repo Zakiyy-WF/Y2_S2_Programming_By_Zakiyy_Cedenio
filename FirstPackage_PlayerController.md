@@ -1,6 +1,6 @@
 # Player Controller Guide
 
-This document explains the inner workings of my player controller package as well as a short description of the example scene. 
+This document explains what the behaviours in this package does and the requirements needed to work effectively, this will explain how this package moves your character and what this package allows you to do as a player controller as well as a short description of the example scene. 
 
 ## Behaviours
 - [`GenericPlayerController`]
