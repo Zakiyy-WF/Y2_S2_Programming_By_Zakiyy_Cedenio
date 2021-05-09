@@ -70,3 +70,44 @@ Made a countdown system to go along with my RCR project, was able to develop a c
 I then made `currentTime = startingTime` in the start method and made `currentTime-= 1 * Time.deltaTime;` which meant that the currentTime will be 10 and will countdown one per second. Finally, I made `countdownText.text = cuttentTime` So the canvas text would display the current time counting down.
 
 I ran into a small issue when Unity told me I couldn't "convert to string" but I was able to reactify that by adding `.ToString("0");`. Also adding the zero meant that the game would countdown using whole numbers rather then decimals.
+
+
+03/04/21
+
+Began working on my AGP project wanted to get a good handle on my game idea, initially went for a vaulting mechanic that would happen on a lowered part of the wall, I worked with one tutors using a collider at a certain point, when an input is pressed the player would jump over a ledge using add force. When tested it seemed too uncontrolled, adding force during the X and Y axis seemed to push my character up but not over the wall. I put the mechanic on the back burner until I could figure it out or find a better mechanic.
+
+20/04/2021
+
+After testing the vault mechanic, I made the choice to forego it, instead, a hide mechanic which allow the player to hide within a cube and hide from a patrolling enemy, my tutor suggested the following.
+We made a cube that was a little bigger than a player and with a trigger box collider. Now that the player can enter the box, I need to make it invisible to the enemies’ Raycast vision script. I had asked if it was possible to change the tag of my player game object to be invisible to the enemies’ Raycast, He told me that there is an easier way to get that effect simply by creating an entirely new layer called Player, he informed me Unity has a layer called “Ignore Raycast” which does as its named. We decided that once the player enters the box, they would switch to the “Ignore Raycast” layer and then switch back to the “Player” layer once they leave the box. 
+We did this by going into the players movement script and setting up a private Boolean called “insideLocker” and setting it to false, we then created an `OnTriggerEnter` function where once the player enters the box, insideLocker will equal true. Once `insideLocker = true` the player will change to layer 2 which is the ignore raycast layer. We finished the code by setting up an `OnTriggerExit` setting the “players” layer back to the created Player layer. The code looks like this.
+
+```
+Void OnTriggerEnter(collider other)
+	{
+		If (insideLocker = true)
+			{
+				gameObject.layer = 2
+			}
+	}
+Void OnTriggerExit(collider other)
+	{
+		If (insideLocker = false)
+			{
+				gameObject.layer = 8
+			}
+	}
+
+```
+
+Lastly, I wanted to make sure the hiding object would disappear after a few second so the player wouldn’t hide there for the entirety of the game, so we did this by creating a public float called “destroyTime” which would allow us to change the time it takes to destroy itself.
+We then set up an `IEnumerator` function called “Die” which would destroy itself after a few seconds set by me and reset the layer of the player as once the hiding game object is destroyed, the player should be visible. The code looks like this:
+
+```
+ IEnumerator Die()
+    {
+        yield return new WaitForSeconds(destroyTime);
+        player.ResetLayer();
+        Destroy(gameObject);
+    }
+```
