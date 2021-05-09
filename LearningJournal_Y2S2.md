@@ -79,7 +79,9 @@ Began working on my AGP project wanted to get a good handle on my game idea, ini
 20/04/2021
 
 After testing the vault mechanic, I made the choice to forego it, instead, a hide mechanic which allow the player to hide within a cube and hide from a patrolling enemy, my tutor suggested the following.
+
 We made a cube that was a little bigger than a player and with a trigger box collider. Now that the player can enter the box, I need to make it invisible to the enemies’ Raycast vision script. I had asked if it was possible to change the tag of my player game object to be invisible to the enemies’ Raycast, He told me that there is an easier way to get that effect simply by creating an entirely new layer called Player, he informed me Unity has a layer called “Ignore Raycast” which does as its named. We decided that once the player enters the box, they would switch to the “Ignore Raycast” layer and then switch back to the “Player” layer once they leave the box. 
+
 We did this by going into the players movement script and setting up a private Boolean called “insideLocker” and setting it to false, we then created an `OnTriggerEnter` function where once the player enters the box, insideLocker will equal true. Once `insideLocker = true` the player will change to layer 2 which is the ignore raycast layer. We finished the code by setting up an `OnTriggerExit` setting the “players” layer back to the created Player layer. The code looks like this.
 
 ```
