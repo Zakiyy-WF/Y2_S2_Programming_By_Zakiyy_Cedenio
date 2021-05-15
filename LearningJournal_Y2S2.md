@@ -124,3 +124,50 @@ I set up a `private void FixedUpdate()` and made a `Vector3 forwardMove` script 
 Underneath that, I referenced the players RigidBody to move its position by its current position + the value of `forwardMove` that I distinguished above. 
 
 After that, in the start function, I used `GetComponet` to reference the RigidBody at the start of the game, then in the Update function I used transform translate to set the players position based on what `Input.GetKeyDown(KeyCode.))` I used, I made the players position, -5x when A was pressed, 0x when S was pressed and 5x when D was pressed.
+
+27/04/2021
+
+I went back to my RCR project and wanted to further develop the hiding mechanic that was worked on, I wanted the player to interact with the game as much as possible, so I decided to make the hiding mechanic on a button pressed as compared to just walking into the locker (Cube stretched into a standing rectangle) and becomes invisible to enemies.
+
+To get the desired effect, I had to take into account where the player could enter the locker, the front position of the locker, if the player were touching the entrance to the locker as well as if the player were in or out of the locker. I set this up by making `lockerPosition` and `frontOfLocker` private Vector3’s and making `touchingLocker` and `insideLocker` private Booleans set to false.
+
+To make the locker interactable, I made the locker have two box colliders, one normal and another a trigger extended out in front of the cube, this will be used to determine the front of the locker. 
+
+I also had to change the code I originally had since I couldn’t use my `OnTriggerEnter` functions, I replaced though in the `Update` functions and tied the original changing layer code to an `if (Input.GetKeyDown(KeyCode.Space)` as well as checking if the player was touching the lockers collider. 
+
+I made a second if statement checking if the player also was not inside the locker, then, the following would happen:
+•	insideLocker = true;
+•	gameObject.layer = 2;
+•	locker.SelfDestruct(this);
+•	frontOfLocker = transform.position;
+•	transform.position = lockerPosition;
+
+The former two parts of code would set `insideLocker` to true and sets the layer of the player to “Ignore Raycast” as mentioned in my 20/04/2021 entry.
+The latter two parts of the code references the front of the locker to recognise its `transform.position` as the player and then making the players transform position the same as the lockers. 
+The `locker.SelfDestruct(this);` is a reference to a function in my `HidingObject` script which I developed later down the line to fix an issue I encounter that I reference later in which the lockers collider stops the player from entering the locker because of its solid collider.
+I also had an else function that did the following:
+
+•	transform.position = frontOfLocker;
+•	gameObject.layer = 8;
+•	insideLocker = false;
+•	locker.RestoreCollider();
+
+The first bit of code would put the player outside of the locker where the front of the lockers transform was and set the players layer to the “Player” layer. 
+To fix the issue of my player not entering the locker, I went to the `HidingObject` script and referenced the players movement script and the collider of the locker and made a function called `SelfDestruct(Dungeon_Player_Movement p)`.
+In the function, I had set the lockers collider to false to deactivate the solid collider and made a `StartCoroutine(“Die”)` which references the ` IEnumerator Die()`to destroy the game object once the a few seconds pass.
+I then made a second function `RestoreCollider()` which would reactivate the solid collider of the locker once called. I called that function in my players movement script once the player leaves box.
+
+With that finished I went forward to finalise my rhythm game, I realise that I needed the player to travel to each lane horizontally rather then go to them via coordinates. 
+I changed my previous script to once a key is hit, they would move a set amount instead going to that coordinates, I also set a limit on how far they can go in that direction by writing. 
+```
+        if (Input.GetKeyDown (KeyCode.A))
+        {
+            x -= 5f;
+            if (x < -5f)
+            {
+                x = -5f;
+            }
+        }
+```
+This would be repeated for the D key except the X would go to 5x rather then -5.
+
