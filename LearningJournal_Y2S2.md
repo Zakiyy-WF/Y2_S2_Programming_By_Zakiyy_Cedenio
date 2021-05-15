@@ -113,3 +113,14 @@ We then set up an `IEnumerator` function called “Die” which would destroy it
         Destroy(gameObject);
     }
 ```
+
+23/04/21
+
+Today for one of my specialism briefs, I was tasked with making a rhythm game, timing the inputs of my keyboard to the beat of music to avoid obstacles and get pickups. I wanted to make a continuous moving script that would allow the player to move along a long platform. To do this, I needed to reference the players Rigidbody as a public variable and set a public float called speed to 5.
+
+(I set the platform to be 15 units wide along side the X Axis, from -5 to 5, this is important to note for something I do in my code)
+
+I set up a `private void FixedUpdate()` and made a `Vector3 forwardMove` script where the players forward position would go in that direction multiplied by the speed float I set at the top of the code, multiplied by `Time.fixedDeltaTime` to make sure it happens at a consistent time link to my PC’s performance.
+Underneath that, I referenced the players RigidBody to move its position by its current position + the value of `forwardMove` that I distinguished above. 
+
+After that, in the start function, I used `GetComponet` to reference the RigidBody at the start of the game, then in the Update function I used transform translate to set the players position based on what `Input.GetKeyDown(KeyCode.))` I used, I made the players position, -5x when A was pressed, 0x when S was pressed and 5x when D was pressed.
