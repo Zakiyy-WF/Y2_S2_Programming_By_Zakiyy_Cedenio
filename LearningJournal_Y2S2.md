@@ -136,10 +136,15 @@ To make the locker interactable, I made the locker have two box colliders, one n
 I also had to change the code I originally had since I couldn’t use my `OnTriggerEnter` functions, I replaced though in the `Update` functions and tied the original changing layer code to an `if (Input.GetKeyDown(KeyCode.Space)` as well as checking if the player was touching the lockers collider. 
 
 I made a second if statement checking if the player also was not inside the locker, then, the following would happen:
+
 •	insideLocker = true;
+
 •	gameObject.layer = 2;
+
 •	locker.SelfDestruct(this);
+
 •	frontOfLocker = transform.position;
+
 •	transform.position = lockerPosition;
 
 The former two parts of code would set `insideLocker` to true and sets the layer of the player to “Ignore Raycast” as mentioned in my 20/04/2021 entry.
@@ -148,8 +153,11 @@ The `locker.SelfDestruct(this);` is a reference to a function in my `HidingObjec
 I also had an else function that did the following:
 
 •	transform.position = frontOfLocker;
+
 •	gameObject.layer = 8;
+
 •	insideLocker = false;
+
 •	locker.RestoreCollider();
 
 The first bit of code would put the player outside of the locker where the front of the lockers transform was and set the players layer to the “Player” layer. 
