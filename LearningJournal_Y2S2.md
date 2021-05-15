@@ -71,12 +71,9 @@ I then made `currentTime = startingTime` in the start method and made `currentTi
 
 I ran into a small issue when Unity told me I couldn't "convert to string" but I was able to reactify that by adding `.ToString("0");`. Also adding the zero meant that the game would countdown using whole numbers rather then decimals.
 
-
-03/04/21
+20/04/2021
 
 Began working on my AGP project wanted to get a good handle on my game idea, initially went for a vaulting mechanic that would happen on a lowered part of the wall, I worked with one tutors using a collider at a certain point, when an input is pressed the player would jump over a ledge using add force. When tested it seemed too uncontrolled, adding force during the X and Y axis seemed to push my character up but not over the wall. I put the mechanic on the back burner until I could figure it out or find a better mechanic.
-
-20/04/2021
 
 After testing the vault mechanic, I made the choice to forego it, instead, a hide mechanic which allow the player to hide within a cube and hide from a patrolling enemy, my tutor suggested the following.
 
